@@ -1,0 +1,166 @@
+/* styles.css */
+@font-face {
+    font-family: 'YukonTechHalftoneItalic';
+    src: url('Font/YukonTechHalftoneItalic-WgmA.otf') format('opentype');
+}
+
+body {
+    font-family: 'YukonTechHalftoneItalic', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+    background-size: 400% 400%;
+    animation: metallic 10s infinite;
+    flex-direction: column;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+@keyframes metallic {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.hearts-background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.slideshow {
+    position: relative;
+    width: 80%;
+    height: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    flex-direction: column;
+    z-index: 1;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    opacity: 0;
+    transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+    transform: scale(0.95);
+}
+
+#slide1 {
+    animation: slideAnimation 25s infinite 0s;
+}
+#slide2 {
+    animation: slideAnimation 25s infinite 5s;
+}
+#slide3 {
+    animation: slideAnimation 25s infinite 10s;
+}
+#slide4 {
+    animation: slideAnimation 25s infinite 15s;
+}
+#slide5 {
+    animation: slideAnimation 25s infinite 20s;
+}
+
+
+@keyframes slideAnimation {
+    0%, 20%, 100% {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    5%, 15% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#start-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff007f;
+    color: white;
+    margin-top: 20px;
+}
+
+#start-button:hover {
+    background-color: #ff66b2;
+}
+
+.author {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1.8em;
+    color: black;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    transform: rotate(-45deg);
+    animation: float 5s infinite ease-in-out;
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -10px;
+    left: 0;
+}
+
+.heart:after {
+    left: 10px;
+    top: 0;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(-45deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(-45deg);
+    }
+    100% {
+        transform: translateY(0) rotate(-45deg);
+    }
+}
